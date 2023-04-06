@@ -7,14 +7,18 @@
 <div class="row">
     <div class="col-xs-12 list-group">
         <!-- <div class="list-group"> -->
-            <a href="#" class="list-group-item " *ngFor="let recipe of recipes">
+            <a 
+            href="#" class="list-group-item " 
+            *ngFor="let recipe of recipes">
                 <div class="float-start">
                     <h4 class="list-group-item-heading">{{recipe.name}}</h4>
                     <p class="list-group-item-text">{{recipe.description}}</p>
                 </div>
                 <span class="float-end">
                     <!-- Property binding approach  -->
-                    <img [src]="recipe.imagePath" alt=" {{ recipe.name}}" class="img-responsive" style="max-height: 50px;">
+                    <img 
+                    [src]="recipe.imagePath" 
+                    alt=" {{ recipe.name}}" class="img-responsive" style="max-height: 50px;">
                 </span>
 
             </a>

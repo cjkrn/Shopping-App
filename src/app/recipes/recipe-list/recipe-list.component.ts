@@ -7,11 +7,13 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent {
+  // Storing Recipe's Module datatype in recipes var. with name, desc, imagePath 
+  // and each instance will have Recipe's object
   recipes : Recipe[] =[
     new Recipe('Test Recipe', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
     new Recipe('Test Recipe', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
-
   ];
+  
   constructor(){}
 
   ngOnInit(){
