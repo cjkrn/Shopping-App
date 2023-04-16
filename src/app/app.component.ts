@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shopping-app';
+  featureLoaded = 'recipe'; // default
+
+  onSelectedFeature(feature: string) {
+    console.log("Selected Header is:- ",feature);
+    this.featureLoaded = feature;
+  }
 }
