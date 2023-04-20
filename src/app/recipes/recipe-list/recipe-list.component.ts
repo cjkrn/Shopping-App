@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , EventEmitter, OnInit, Output} from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -9,6 +9,9 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent {
   // Storing Recipe's Module datatype in recipes var. with name, desc, imagePath 
   // and each instance will have Recipe's object
+
+  // Sending this recipe to Recipe Component
+  @Output() recipeSelectedFromList = new EventEmitter<Recipe>();
   recipes : Recipe[] =[
     new Recipe('Test Recipe', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
     new Recipe('Test Recipe', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
@@ -18,6 +21,11 @@ export class RecipeListComponent {
 
   ngOnInit(){
 
+  }
+
+  onRecipeSelected(recipe: Recipe){
+    console.log('Recipe selected in List: ', recipe)
+    this.recipeSelectedFromList.emit(recipe); 
   }
 
 }

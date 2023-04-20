@@ -9,15 +9,17 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent {
   // getting this Recipe from Outside ie from Recipe list component
   @Input() recipe: Recipe;
-  @Output() selectedRecipe = new EventEmitter<Recipe>();
+  // Sending this selectedRecipe to Recipe list component
+  @Output() selectedRecipeFromItem = new EventEmitter<void>();
   constructor(){
 
   }
   ngOnInit(){
     // console.log(this.recipe);
   }
-  onRecipeSelected(recipe: Recipe){
-    this.selectedRecipe.emit(recipe);
+  onRecipeSelected(){
+    console.log(this.selectedRecipeFromItem);
+    this.selectedRecipeFromItem.emit();
   }
 
 
