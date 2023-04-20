@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Ingredrient } from '../shared/ingredient.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -7,9 +7,14 @@ import { Ingredrient } from '../shared/ingredient.model';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent {
-  ingredients: Ingredrient[] = [
-    new Ingredrient('Apple', 5),
-    new Ingredrient('Tomato', 10),
+
+  // Getting Data name and amount, from Shopping edit 
+  @Input() name: string;
+  @Input() amount: number;
+
+  ingredients: Ingredient[] = [
+    new Ingredient('Apple', 5),
+    new Ingredient('Tomato', 10),
 
   ] ;
   constructor() {}
@@ -17,4 +22,9 @@ export class ShoppingListComponent {
   ngOnInit(){
     
   }
+  onAddIngredientFromItem(ingredientEvent: Ingredient){
+    this.ingredients.push(ingredientEvent);
+  }
+
+
 }

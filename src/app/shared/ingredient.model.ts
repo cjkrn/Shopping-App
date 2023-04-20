@@ -1,4 +1,4 @@
-// export class Ingredrient{
+// export class Ingredient{
 //     public name: string;
 //     public amount: number;
 
@@ -10,7 +10,7 @@
 
 // Shrt cut to write the above stuff given by Typescript
 
-export class Ingredrient{
+export class Ingredient{
 
     constructor(public name: string , public amount : number){ }
 }

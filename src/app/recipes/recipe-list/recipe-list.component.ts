@@ -6,17 +6,18 @@ import { Recipe } from '../recipe.model';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent {
+export class RecipeListComponent implements OnInit {
   // Storing Recipe's Module datatype in recipes var. with name, desc, imagePath 
   // and each instance will have Recipe's object
 
   // Sending this recipe to Recipe Component
   @Output() recipeSelectedFromList = new EventEmitter<Recipe>();
+
+
   recipes : Recipe[] =[
-    new Recipe('Test Recipe', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
-    new Recipe('Test Recipe', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
-  ];
-  
+    new Recipe('Breakfast', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/yogurt-berry_VTCDCNDPCH.jpg'),
+    new Recipe('Lunch', 'this is a test', 'https://cdn.stocksnap.io/img-thumbs/960w/food-recipe_G8QICMKLUV.jpg'),
+  ];  
   constructor(){}
 
   ngOnInit(){

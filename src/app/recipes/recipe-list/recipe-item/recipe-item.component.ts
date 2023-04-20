@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Recipe } from '../../recipe.model';
   templateUrl: './recipe-item.component.html',
   styleUrls: ['./recipe-item.component.css']
 })
-export class RecipeItemComponent {
+export class RecipeItemComponent implements OnInit  {
   // getting this Recipe from Outside ie from Recipe list component
   @Input() recipe: Recipe;
   // Sending this selectedRecipe to Recipe list component
