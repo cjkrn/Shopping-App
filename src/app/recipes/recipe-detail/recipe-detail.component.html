@@ -15,19 +15,24 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <button 
-        type="button" 
-        class="btn btn-primary dropdown-toggle"
-        >Manage recipe
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">Add ingredients </a></li>
-            <li><a href="#">Edit recipe </a></li>
-            <li><a href="#">Delete Recipe </a></li>
-
-        </ul>
+        <div class="dropdown" appDropdown >
+            <button 
+                type="button" 
+                class="btn btn-secondary dropdown-toggle"
+                data-toggle = "dropdown"
+                aria-haspopup="true" aria-expanded="false"
+                >Manage Recipe
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Add ingredients </a></li>
+                <li><a class="dropdown-item" href="#">Edit recipe </a></li>
+                <li><a class="dropdown-item" href="#">Delete Recipe </a></li>
+                
+            </div>
+        </div>
     </div>
+
 </div>
 
 <div class="row">
