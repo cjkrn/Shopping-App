@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -12,6 +13,14 @@ export class ShoppingEditComponent implements OnInit  {
   //passing the ElementRef from the HTML Template
   @ViewChild('amountInput', {static: false}) amountRef: ElementRef;
 
+  constructor(
+    private shoppingService: ShoppingListService,
+  ) {
+
+  }
+  ngOnInit() {
+      
+  }
   // Event Emitter of type definition as a JS Object with 2 keys name and amount:-
   // to listen for new Added Ingredients
   
@@ -19,7 +28,7 @@ export class ShoppingEditComponent implements OnInit  {
   //ingredientAdded =  new EventEmitter<{name: string, amount: number}>();
   // OR just import Ingredient Model from Shared Component 
   //Method 2:- 
-  @Output() ingredientAdded =  new EventEmitter<Ingredient>(); // add @Output so that we can listen from
+  // @Output() ingredientAdded =  new EventEmitter<Ingredient>(); // add @Output so that we can listen from
 
   
   AddIngredients(event: any) {
@@ -32,12 +41,7 @@ export class ShoppingEditComponent implements OnInit  {
     const ingName = this.nameRef.nativeElement.value;
     const ingAmount = this.amountRef.nativeElement.value;
     const newIngredient = new Ingredient(ingName, ingAmount)
-    this.ingredientAdded.emit(newIngredient);
+    this.shoppingService.add
   }
-  constructor() {
-
-  }
-  ngOnInit() {
-      
-  }
+  
 }
