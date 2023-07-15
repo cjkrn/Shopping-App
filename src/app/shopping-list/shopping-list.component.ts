@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
 
@@ -23,10 +23,15 @@ export class ShoppingListComponent {
     this.ingredients = this.shoppingService.getIngredients()
   }
 
-  // onAddIngredientFromItem(ingredientEvent: Ingredient){
-  //   this.ingredients.push(ingredientEvent);
-  //   // this.ingredients.push(ingredientEvent);
-  // }
+  onAddIngredientFromItem(ingredientEvent: Ingredient){
+    this.ingredients.push(ingredientEvent);
+    this.shoppingService.ingredientsChanged.subscribe(
+      (ingredients: Ingredient[]) =>{
+        console.log(ingredients)
+        this.ingredients = ingredients;
+      }
+    );
+  }
 
 
 }
